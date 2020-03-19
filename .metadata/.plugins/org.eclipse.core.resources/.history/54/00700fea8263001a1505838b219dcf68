@@ -1,0 +1,9 @@
+package com.lara;
+
+public class M61 {
+	public static void main(String[] args) {
+		String s1 = "java made easy and Bangalore is very cool";
+	
+	}
+
+}

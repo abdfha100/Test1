@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;aap4.H&apos; to &apos;M19&apos;&#x0D;&#x0A;- Original project: &apos;aap4&apos;&#x0D;&#x0A;- Original element: &apos;aap4.H&apos;&#x0D;&#x0A;- Renamed element: &apos;aap4.M19&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;H&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;aap4{H.java[H" matchStrategy="1" name="M19" qualified="false" references="true" similarDeclarations="false" stamp="1566438363084" textual="false" version="1.0"/>
+</session>

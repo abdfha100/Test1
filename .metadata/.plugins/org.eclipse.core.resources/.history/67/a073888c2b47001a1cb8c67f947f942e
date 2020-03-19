@@ -1,0 +1,10 @@
+package arraysMulti;
+
+//An array is a container which stores multiple values of same data type.. 
+
+public class M1 {
+	public static void main(String[] args) {
+		
+	}
+
+}

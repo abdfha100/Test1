@@ -1,0 +1,13 @@
+package stringBuffer;
+
+public class M28 {
+	public static void main(String[] args) {
+		StringBuffer sb1 =new StringBuffer();
+		sb1.append("hello");
+		
+		StringBuffer sb =new StringBuffer();
+		sb.append("hello");
+		
+	}
+
+}

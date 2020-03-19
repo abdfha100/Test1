@@ -1,0 +1,7 @@
+2019-09-28 14:43:11.371 [main] DEBUG alpha.log4Example - Setting chrome driver property
+2019-09-28 14:43:16.602 [main] INFO  alpha.log4Example - Window Maximized
+2019-09-28 14:43:16.602 [main] DEBUG alpha.log4Example - Now hitting Amazon server
+2019-09-28 14:43:22.237 [main] INFO  alpha.log4Example - Landed on amazon home page
+2019-09-28 14:43:31.116 [main] DEBUG alpha.log4Example - Getting the frames count
+2019-09-28 14:43:31.143 [main] INFO  alpha.log4Example - Frames count retreived
+2019-09-28 14:43:31.153 [main] INFO  alpha.log4Example - Successfully switched to frame

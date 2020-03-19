@@ -1,0 +1,16 @@
+package arraysMulti;
+
+//An array is a container which stores multiple values of same data type.. 
+
+public class M1 {
+	public static void main(String[] args) {
+		
+		int a;
+		a=4;
+		
+		int b[] = new int[5]; // Declaration of an array and allocates memory for the value.
+		int c[] = new int[10];  // Declaration of an array and allocates memory for the value.
+		
+	}
+
+}

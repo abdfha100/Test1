@@ -1,0 +1,59 @@
+package package102;
+
+import static io.restassured.RestAssured.given;
+import static org.hamcrest.Matchers.equalTo;
+
+import org.testng.annotations.Test;
+
+import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
+
+public class Test1 {
+	
+	/*@Test
+	public void getPetId_GET() {
+		
+		RestAssured.baseURI= "http://petstore.swagger.io/#/";
+		
+		given().param("petId", "2").
+		when().
+			get("/v2/swagger.json").
+		then().
+			assertThat().
+			statusCode(200).and().
+			contentType(ContentType.JSON).and();
+	}*/
+	
+	@Test
+	public void postPetId_POST() {
+		
+		RestAssured.baseURI= "http://petstore.swagger.io/#/";
+		
+		given().
+			param("petId", "2").
+			body("{\r\n" + 
+					"  \"id\": 100,\r\n" + 
+					"  \"category\": {\r\n" + 
+					"    \"id\": 101,\r\n" + 
+					"    \"name\": \"Aproov\"\r\n" + 
+					"  },\r\n" + 
+					"  \"name\": \"student\",\r\n" + 
+					"  \"photoUrls\": [\r\n" + 
+					"    \"string\"\r\n" + 
+					"  ],\r\n" + 
+					"  \"tags\": [\r\n" + 
+					"    {\r\n" + 
+					"      \"id\": 1,\r\n" + 
+					"      \"name\": \"IT\"\r\n" + 
+					"    }\r\n" + 
+					"  ],\r\n" + 
+					"  \"status\": \"available\"\r\n" + 
+					"}").
+		when().
+			get("/v2/swagger.json").
+		then().
+			assertThat().
+			statusCode(200).and().
+			contentType(ContentType.JSON);
+	}
+}

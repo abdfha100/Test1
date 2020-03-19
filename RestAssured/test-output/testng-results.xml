@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="7924" started-at="2020-03-19T10:00:13 IST" finished-at="2020-03-19T10:00:21 IST">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="7924" started-at="2020-03-19T10:00:13 IST" finished-at="2020-03-19T10:00:21 IST">
+      <class name="pet.PetTestSuite">
+        <test-method status="PASS" signature="postPetId_POST()[pri:0, instance:pet.PetTestSuite@32c52b]" name="postPetId_POST" duration-ms="7848" started-at="2020-03-19T10:00:13 IST" finished-at="2020-03-19T10:00:20 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- postPetId_POST -->
+      </class> <!-- pet.PetTestSuite -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

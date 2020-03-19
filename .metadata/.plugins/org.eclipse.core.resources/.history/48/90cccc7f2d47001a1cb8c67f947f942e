@@ -1,0 +1,19 @@
+package arraysMulti;
+
+/*
+2  4  5
+3  4  7
+1  2  6
+
+
+
+
+ */
+
+public class M3 {
+	public static void main(String[] args) {
+		
+		int[][]= 
+	}
+
+}

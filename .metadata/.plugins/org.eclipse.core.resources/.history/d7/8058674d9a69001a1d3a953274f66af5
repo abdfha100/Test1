@@ -1,0 +1,158 @@
+package pet;
+
+import static io.restassured.RestAssured.given;
+import org.testng.annotations.Test;
+import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
+import io.restassured.path.json.JsonPath;
+import io.restassured.response.Response;
+
+import static org.hamcrest.Matchers.equalTo;
+
+import java.io.File;
+import java.util.HashMap;
+
+public class PetTestSuite {
+	
+	@Test
+	public void postPetId_POST() {
+		
+		String postBody ="{\r\n" + 
+				"  \"id\": 7007,\r\n" + 
+				"  \"category\": {\r\n" + 
+				"    \"id\": 5,\r\n" + 
+				"    \"name\": \"categoryA\"\r\n" + 
+				"  },\r\n" + 
+				"  \"name\": \"dog123\",\r\n" + 
+				"  \"photoUrls\": [\r\n" + 
+				"    \"string\"\r\n" + 
+				"  ],\r\n" + 
+				"  \"tags\": [\r\n" + 
+				"    {\r\n" + 
+				"      \"id\": 7,\r\n" + 
+				"      \"name\": \"tagABC\"\r\n" + 
+				"    }\r\n" + 
+				"  ],\r\n" + 
+				"  \"status\": \"available\"\r\n" + 
+				"}"; 
+		
+		String putBody = "{\r\n" + 
+				"  \"id\": 7007,\r\n" + 
+				"  \"category\": {\r\n" + 
+				"    \"id\": 5,\r\n" + 
+				"    \"name\": \"categoryA\"\r\n" + 
+				"  },\r\n" + 
+				"  \"name\": \"dog1234\",\r\n" + 
+				"  \"photoUrls\": [\r\n" + 
+				"    \"string\"\r\n" + 
+				"  ],\r\n" + 
+				"  \"tags\": [\r\n" + 
+				"    {\r\n" + 
+				"      \"id\": 7,\r\n" + 
+				"      \"name\": \"tagABC\"\r\n" + 
+				"    }\r\n" + 
+				"  ],\r\n" + 
+				"  \"status\": \"available\"\r\n" + 
+				"}";
+		
+		RestAssured.baseURI= "http://petstore.swagger.io";
+		
+		//Task-1:Post_Add a new pet to the store
+		Response res = given().
+			contentType(ContentType.JSON).
+			body(postBody).
+		when().
+			post("/v2/pet").
+		then().
+			assertThat().
+			statusCode(200).and().
+			contentType(ContentType.JSON).and().
+			body("id", equalTo(7007)).
+		extract().
+			response();
+		
+		//grabbing the petID from the response
+		String ResponseString= res.asString();
+		JsonPath jsp= new JsonPath(ResponseString);
+		String petId = jsp.getString("id");
+		System.out.println(petId);
+		
+		
+		//Task-2:Get_Find pet by ID
+		given().
+		header("accept", "application/json").
+	when().
+		get("/v2/pet/"+petId).
+	then().
+		assertThat().
+		statusCode(200).and().
+		contentType(ContentType.JSON).and().
+		body("id", equalTo(7007)).and().
+		body("name", equalTo("dog123"));
+		
+		
+		//Task-3:Put_Update an existing pet updating dogName=dog1234
+		given().
+		contentType(ContentType.JSON).
+		body(putBody).
+	when().
+		put("/v2/pet").
+	then().
+		assertThat().
+		statusCode(200).and().
+		contentType(ContentType.JSON).and().
+		body("id", equalTo(7007)).and().
+		body("name", equalTo("dog1234"));
+		
+		//Task-4:POST_Updates a pet in the store with form data as dogName=dog1234F
+		HashMap<String, String> postContent = new HashMap<>();
+		postContent.put("name", "dog1234FD");
+		postContent.put("status", "available");
+		
+		given().
+		contentType(ContentType.JSON).
+		body(postContent).
+	when().
+		post("/v2/pet").
+	then().
+		assertThat().
+		statusCode(200);
+		
+		
+		//Task-5:POST_Post_uploads an image
+		File testUploadFile = new File("F:\\picture\\myDog.jpg");
+		
+		HashMap<String, String> postContent1 = new HashMap<>();
+		postContent.put("additionalMetadata", "DogPicture");
+				
+		given().
+			multiPart(testUploadFile).
+		body(postContent1).
+		when().
+			post("/v2/pet").
+		then().
+		assertThat().
+		statusCode(200);
+		
+		//Task-6:Get_Finds Pets by status of dogStatus
+		given().
+		queryParam("status", "available").
+		header("accept", "application/json").
+	when().
+		get("v2/pet/findByStatus").
+	then().
+		assertThat().
+		statusCode(200).and().
+		contentType(ContentType.JSON).and().
+		body("status[90]", equalTo("available"));
+		
+		//Task-7:Delete_Deletes a pet
+	given().	
+		header("accept", "application/json").
+	when().
+		delete("/v2/pet/"+petId).
+	then().
+		assertThat().
+		statusCode(200);
+	} 
+}

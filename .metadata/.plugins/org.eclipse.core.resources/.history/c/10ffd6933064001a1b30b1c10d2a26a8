@@ -1,0 +1,11 @@
+package formatters04;
+
+public class M11 {
+public static void main(String[] args) {
+		
+		int i = 10;
+		double j = 1.5;
+		
+		System.out.printf("j value is %2f and j value is %1$d", i, j);	
+	}
+}

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+	<parameter name="URL1" value="https://www.google.com/" />
+
+	<test name="moduelSOATesting">
+	<parameter name= "URL2" value= "https://www.soaServices.com" />
+	<parameter name= "APIkey/userName" value= "keyvalueLoginUserName"/>
+		<classes>
+			<class name="test.parameterisingTC08" />
+		</classes>
+	</test>
+	<test name="syncMessagesSOATesting">
+		<parameter name="URL3" value="https://www.syncMessagesPortal.com" />
+		<classes>
+			<class name="test.helpAttributeEnabledTC07" />
+		</classes>
+	</test>
+</suite> 

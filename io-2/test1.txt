@@ -1,0 +1,8 @@
+As selected in your Entitlement, one or more of the following Permitted
+Uses will apply to your use of Software. Unless you have an Entitlement
+that expressly permits it, you may not use Software for any of the
+other Permitted Uses. If you don't have an Entitlement, or if your
+Entitlement doesn't cover additional software delivered to you, then
+such software is for your Evaluation Use. Evaluation Use. You may evaluate Software internally for a period
+of 90 days from your first use. Research and Instructional Use. You may use Software internally to
+design, develop and test, and also to provide instruction on such uses.

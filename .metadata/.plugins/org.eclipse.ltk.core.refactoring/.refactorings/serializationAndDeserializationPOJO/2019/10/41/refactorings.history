@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;pojo.Course&apos; to &apos;Courses&apos;&#x0D;&#x0A;- Original project: &apos;serializationAndDeserializationPOJO&apos;&#x0D;&#x0A;- Original element: &apos;pojo.Course&apos;&#x0D;&#x0A;- Renamed element: &apos;pojo.Courses&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;Course&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;pojo{Course.java[Course" matchStrategy="1" name="Courses" qualified="false" references="true" similarDeclarations="false" stamp="1570714008831" textual="false" version="1.0"/>
+</session>

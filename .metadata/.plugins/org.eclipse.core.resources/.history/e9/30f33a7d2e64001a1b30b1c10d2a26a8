@@ -1,0 +1,16 @@
+package formatters04;
+
+public class M4 {
+public static void main(String[] args) {
+		
+		int i = 100;
+		double j = 2.5;
+		boolean k = true;
+		String s1 = "abc";
+		char c1 = 't';
+		
+		System.out.println("i value is %d", i);	
+		System.out.println("i value is %d", i);
+	}
+
+}

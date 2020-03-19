@@ -1,0 +1,44 @@
+package stringBuffer;
+
+public class M38 {
+	public static void main(String[] args) {
+		
+		StringBuilder sb = new StringBuilder("hellotoall");
+		System.out.println(sb);
+	}
+}
+
+/*
+OP
+---
+hellotoall
+
+notes:
+******
+StringBuffer is a synchronize whereas 
+StringBuilder is a non synchronize. 
+
+**question)
+what is difference between String and StringBuffer ?
+
+ String()                     StringBuffer()
+ ******                       **************     
+ immutable 					   mutable
+
+ equals() and					equals() & hashCode()						
+ hashCode method                are not over rided
+ are over rided
+
+ note:
+ *****
+ In StringBuffer as equals() and hashCode() are not over rided,
+ it can't compare content of the objects.
+ 
+ it is implementing 			whereas here it is not implementing
+ comparable interface.          comparable interface.
+
+ as we can compare with         In StringBuffer() sorting is not possible
+ the comparable interface,      as comparer interface is not available 
+ it is possible to sorting      and unable to compare the object's contents.
+ based on the content.
+ */

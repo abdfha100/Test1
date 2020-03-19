@@ -1,0 +1,80 @@
+package com.lara;
+
+class I
+{
+	void test1()
+	{
+		System.out.println("test1 begin by" + Thread.currentThread().getName());
+		try
+		{
+			wait();
+		}
+		catch(InterruptedException ex)
+		{
+			ex.printStackTrace();
+		}
+		System.out.println("test1 end by " + Thread.currentThread().getName());
+	}
+	void test2()
+	{
+		System.out.println("test2 begin by" + Thread.currentThread().getName());
+		notify();
+		System.out.println("test2 end by " + Thread.currentThread().getName());
+	}
+}
+
+class J extends Thread
+{
+	I obj;
+	J(I obj)
+	{
+		this.obj = obj;
+	}
+	public void run()
+	{
+		obj.test1();
+	}
+}
+class K extends Thread
+{
+	I obj;
+	K(I obj)
+	{
+		this.obj = obj;
+	}
+	public void run()
+	{
+		obj.test1();
+	}
+}
+
+public class M4 {
+	public static void main(String[] args) {
+		I obj = new I();
+		J j1 = new J(obj);
+		K k1 = new K(obj);
+		j1.start();
+		k1.start();
+		System.out.println("main going to sleep");
+		Util.sleep(10000);
+		System.out.println("main after sleep");
+		obj.test2();
+	}
+}
+
+/*
+ 
+ wait(), notify(), and notifyAll()
+ every cls contina all these methods..
+ 
+ every class is a subclss of Objcet class..
+ 
+ these 3 
+ 
+ when thread is calling any of the mehod ( wati(), notify() or notifyAll() )
+ * one condintion thread shuld be part of the Object class t1 
+ * non-static and non-synchronized.
+ * 
+ * all these methods can be called only form synchronized methods or blocks...
+ 
+ */

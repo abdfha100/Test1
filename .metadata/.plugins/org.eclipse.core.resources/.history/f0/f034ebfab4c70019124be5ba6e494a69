@@ -1,0 +1,24 @@
+package com.lara;
+
+public class M4 {
+
+}
+
+
+
+/*
+ 
+ wait(), notify(), and notifyAll()
+ every cls contina all these methods..
+ 
+ every class is a subclss of Objcet class..
+ 
+ these 3 
+ 
+ when thread is calling any of the mehod ( wati(), notify() or notifyAll() )
+ * one condintion thread shuld be part of the Object class t1 
+ * non-static and non-synchronized.
+ * 
+ * all these mthods can be called only form synchronized blocks...
+ 
+ */

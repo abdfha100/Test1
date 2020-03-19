@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite thread-count="6" guice-stage="DEVELOPMENT" name="Failed suite [Suite]" parallel="tests">
+  <test thread-count="6" name="All test cases(failed)" parallel="tests">
+    <classes>
+      <class name="test.parameterisingTC08">
+        <methods>
+          <include name="deleteKeytrol"/>
+          <include name="getKeytrol"/>
+          <include name="syncKeytrol"/>
+        </methods>
+      </class> <!-- test.parameterisingTC08 -->
+      <class name="test.helpAttributeEnabledTC07">
+        <methods>
+          <include name="userProfileManagement"/>
+          <include name="Activation"/>
+        </methods>
+      </class> <!-- test.helpAttributeEnabledTC07 -->
+      <class name="test.dataProviderAnnotationTC10">
+        <methods>
+          <include name="syncKeytrol"/>
+          <include name="deleteKeytrol"/>
+        </methods>
+      </class> <!-- test.dataProviderAnnotationTC10 -->
+      <class name="test.helpAttribute_timeOutTC06">
+        <methods>
+          <include name="orderManagement"/>
+        </methods>
+      </class> <!-- test.helpAttribute_timeOutTC06 -->
+    </classes>
+  </test> <!-- All test cases(failed) -->
+</suite> <!-- Failed suite [Suite] -->

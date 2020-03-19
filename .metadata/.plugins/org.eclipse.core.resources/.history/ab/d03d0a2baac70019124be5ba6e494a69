@@ -1,0 +1,52 @@
+package com.lara;
+class Shared
+{
+	synchronized void test1(Shared obj)
+	{
+		System.out.println("test started by" + Thread.currentThread().getName());
+		Util.sleep(1000);
+		System.out.println("after sleep in test1");
+		obj.test2(this);
+		System.out.println("test1 ending by " + Thread.currentThread().getName());
+	}
+	synchronized void test2(Shared obj)
+	{
+		System.out.println("test started by" + Thread.currentThread().getName());
+		Util.sleep(1000);
+		System.out.println("after sleep in test1");
+		obj.test1(this);
+		System.out.println("test1 ending by " + Thread.currentThread().getName());
+	}
+}
+
+class G extends Thread
+{
+	Shared s1, s2;
+	G(Shared s1, Shared s2)
+	{
+		this.s1 = s1;
+		this.s2 = s2;
+	}
+	public void run()
+	{
+		s1.test1(s2);
+	}
+}
+
+class H extends Thread
+{
+	Shared s1, s2;
+	H(Shared s1, Shared s2)
+	{
+		this.s1 = s1;
+		this.s2 = s2;
+	}
+	public void run()
+	{
+		s1.test2(s1);
+	}
+}
+
+public class M3 {
+
+}

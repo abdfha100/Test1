@@ -1,0 +1,17 @@
+package pack2;
+
+public class M22 {
+public static void main(String[] args) {
+		
+		String s1= "java";
+		
+		s1= s1.concat("8.0");
+		
+		System.out.println(s1);
+	}
+}
+
+
+/*
+java8.0
+ */

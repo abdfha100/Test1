@@ -1,0 +1,103 @@
+package pet;
+
+import static io.restassured.RestAssured.given;
+import org.testng.annotations.Test;
+import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
+import io.restassured.path.json.JsonPath;
+import io.restassured.response.Response;
+
+import static org.hamcrest.Matchers.equalTo;
+
+public class PetTestSuite {
+	
+	@Test
+	public void postPetId_POST() {
+		
+		String postBody ="{\r\n" + 
+				"  \"id\": 7007,\r\n" + 
+				"  \"category\": {\r\n" + 
+				"    \"id\": 5,\r\n" + 
+				"    \"name\": \"categoryA\"\r\n" + 
+				"  },\r\n" + 
+				"  \"name\": \"dog123\",\r\n" + 
+				"  \"photoUrls\": [\r\n" + 
+				"    \"string\"\r\n" + 
+				"  ],\r\n" + 
+				"  \"tags\": [\r\n" + 
+				"    {\r\n" + 
+				"      \"id\": 7,\r\n" + 
+				"      \"name\": \"tagABC\"\r\n" + 
+				"    }\r\n" + 
+				"  ],\r\n" + 
+				"  \"status\": \"available\"\r\n" + 
+				"}"; 
+		
+		String putBody = "{\r\n" + 
+				"  \"id\": 7007,\r\n" + 
+				"  \"category\": {\r\n" + 
+				"    \"id\": 5,\r\n" + 
+				"    \"name\": \"categoryA\"\r\n" + 
+				"  },\r\n" + 
+				"  \"name\": \"dog1234\",\r\n" + 
+				"  \"photoUrls\": [\r\n" + 
+				"    \"string\"\r\n" + 
+				"  ],\r\n" + 
+				"  \"tags\": [\r\n" + 
+				"    {\r\n" + 
+				"      \"id\": 7,\r\n" + 
+				"      \"name\": \"tagABC\"\r\n" + 
+				"    }\r\n" + 
+				"  ],\r\n" + 
+				"  \"status\": \"available\"\r\n" + 
+				"}";
+		
+		RestAssured.baseURI= "http://petstore.swagger.io";
+		
+		//Post_Add a new pet to the store
+		Response res = given().
+			contentType(ContentType.JSON).
+			body(postBody).
+		when().
+			post("/v2/pet").
+		then().
+			assertThat().
+			statusCode(200).and().
+			contentType(ContentType.JSON).and().
+			body("id", equalTo(7007)).
+		extract().
+			response();
+		
+		//grabbing the petID from the response
+		String ResponseString= res.asString();
+		JsonPath jsp= new JsonPath(ResponseString);
+		String petId = jsp.getString("id");
+		System.out.println(petId);
+		
+		
+		//Get_Find pet by ID
+		given().
+		header("accept", "application/json").
+	when().
+		get("/v2/pet/"+petId).
+	then().
+		assertThat().
+		statusCode(200).and().
+		contentType(ContentType.JSON).and().
+		body("id", equalTo(7007)).and().
+		body("name", equalTo("dog123"));
+		
+		
+		//Put_Update an existing pet
+		given().
+		contentType(ContentType.JSON).
+		body(postBody).
+	when().
+		put("/v2/pet").
+	then().
+		assertThat().
+		statusCode(200).and().
+		contentType(ContentType.JSON).and().
+		body("id", equalTo(7007));
+	} 
+}

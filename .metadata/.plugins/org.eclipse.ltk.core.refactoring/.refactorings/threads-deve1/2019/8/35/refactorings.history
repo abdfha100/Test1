@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete element from project &apos;threads-deve1&apos;&#x0D;&#x0A;- Original project: &apos;threads-deve1&apos;&#x0D;&#x0A;- Original element: &apos;threads-deve1/src/com.lara.packagae&apos;" description="Delete element" element1="/src&lt;com.lara.packagae" element2="/src&lt;com.lara" element3="/src&lt;com" elements="3" flags="589830" id="org.eclipse.jdt.ui.delete" resources="0" stamp="1566828774075" subPackages="false" version="1.0"/>
+</session>

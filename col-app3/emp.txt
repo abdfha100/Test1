@@ -1,0 +1,6 @@
+ramu, b, 22, 5000
+pavan, s, 32, 4000
+kumar, z, 24, 6000
+murali, c, 28, 5500
+rabi, e, 52, 2500
+haritha, d, 21, 4500

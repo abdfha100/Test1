@@ -1,0 +1,20 @@
+package com.lara01;
+
+public class M47 {
+	public static void main(String[] args) {
+		
+		String s1= "java made easy and also java very popular";
+		//          0123456789
+		int i = s1.lastIndexOf('a');
+		System.out.println(i);
+		
+		int j = s1.lastIndexOf('a', 11);
+		System.out.println(j);
+	}
+}
+
+/*
+39
+11
+
+ */

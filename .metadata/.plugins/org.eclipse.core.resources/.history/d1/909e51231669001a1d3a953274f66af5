@@ -1,0 +1,146 @@
+package package102;
+
+import static io.restassured.RestAssured.given;
+import static org.hamcrest.Matchers.equalTo;
+
+import org.testng.annotations.Test;
+
+import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
+
+public class Test1 {
+	
+	@Test
+	public void getPetId_GET() {
+		
+		RestAssured.baseURI= "http://petstore.swagger.io/#/";
+		
+		given().param("petId", "2").
+		when().
+			get("/v2/swagger.json").
+		then().
+			assertThat().
+			statusCode(200).and().
+			contentType(ContentType.JSON).and();
+	}
+	
+	@Test
+	public void postPetId_POST() {
+		RestAssured.baseURI= "http://petstore.swagger.io/#/";
+		given().
+			param("petId", "2").
+			body("{\r\n" + 
+					"  \"id\": 200,\r\n" + 
+					"  \"category\": {\r\n" + 
+					"    \"id\": 101,\r\n" + 
+					"    \"name\": \"DogA\"\r\n" + 
+					"  },\r\n" + 
+					"  \"name\": \"Pomarian\",\r\n" + 
+					"  \"photoUrls\": [\r\n" + 
+					"    \"string\"\r\n" + 
+					"  ],\r\n" + 
+					"  \"tags\": [\r\n" + 
+					"    {\r\n" + 
+					"      \"id\": 1000,\r\n" + 
+					"      \"name\": \"SharpDogs\"\r\n" + 
+					"    }\r\n" + 
+					"  ],\r\n" + 
+					"  \"status\": \"available\"\r\n" + 
+					"}").
+		when().
+			post("/v2/swagger.json").
+		then().
+			assertThat().
+			statusCode(200).and().
+			contentType(ContentType.JSON);
+	}
+	
+	@Test
+	public void putPetId_PUT() {
+		RestAssured.baseURI= "http://petstore.swagger.io/#/";
+		given().
+			param("petId", "1000").
+			body("{\r\n" + 
+					"  \"id\": 200,\r\n" + 
+					"  \"category\": {\r\n" + 
+					"    \"id\": 101,\r\n" + 
+					"    \"name\": \"DogA\"\r\n" + 
+					"  },\r\n" + 
+					"  \"name\": \"PomarianABC\",\r\n" + 
+					"  \"photoUrls\": [\r\n" + 
+					"    \"string\"\r\n" + 
+					"  ],\r\n" + 
+					"  \"tags\": [\r\n" + 
+					"    {\r\n" + 
+					"      \"id\": 1000,\r\n" + 
+					"      \"name\": \"SharpDogs\"\r\n" + 
+					"    }\r\n" + 
+					"  ],\r\n" + 
+					"  \"status\": \"available\"\r\n" + 
+					"}").
+		when().
+			put("/v2/swagger.json").
+		then().
+			assertThat().
+			statusCode(200).and().
+			contentType(ContentType.JSON);
+	}
+	
+	
+	@Test
+	public void postUpdatePetStore_POST() {
+		RestAssured.baseURI= "http://petstore.swagger.io/#/";
+		given().contentType("multipart/form-dat")
+		
+			.multiPart("petId", "200").
+			multiPart("name", "PomarianABC_1").
+			multiPart("status", "unavailable").
+		when().
+			post("/v2/swagger.json").
+		then().
+			assertThat().
+			statusCode(200).and().
+			contentType(ContentType.JSON);
+	}
+	
+	@Test
+	public void postUploadImage_POST() {
+		RestAssured.baseURI= "http://petstore.swagger.io/#/";
+		given().contentType("multipart/form-dat").
+			multiPart("petId", "200").
+			multiPart("additionalMetadata", "addingImage").
+			multiPart("file", "C:/Users/Public/Pictures/Sample Pictures/dog_jpeg").
+		when().
+			post("/v2/swagger.json").
+		then().
+			assertThat().
+			statusCode(200).and().
+			contentType(ContentType.JSON);
+	}
+	
+	@Test
+	public void getFindPetsBtStatus_GET() {
+		RestAssured.baseURI= "http://petstore.swagger.io/#/";
+		given().
+			queryParam("status", "available").
+		when().
+			get("/v2/swagger.json").
+		then().
+			assertThat().
+			statusCode(200).and().
+			contentType(ContentType.JSON);
+	}
+	
+	@Test
+	public void del_DeletePet_DELT() {
+		RestAssured.baseURI= "http://petstore.swagger.io/#/";
+		given().
+			param("petId", "200").
+		when().
+			delete("/v2/swagger.json").
+		then().
+			assertThat().
+			statusCode(200).and().
+			contentType(ContentType.JSON);
+	}
+}

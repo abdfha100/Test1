@@ -1,0 +1,17 @@
+package com.lara;
+
+public class M4 {
+
+}
+
+
+
+
+/*
+ 
+ wait(), notify(), and notifyAll()
+ every cls contina all these methods..
+ 
+ every class is a subclss of Objcet class..
+ 
+ */

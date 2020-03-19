@@ -1,0 +1,31 @@
+package stringBasics;
+
+public class M61 {
+	public static void main(String[] args) {
+		String s1 = "java made easy and bangalore is very cool";
+		int startIndex = 0;
+		for(int endIndex = s1.indexOf(' ');
+				endIndex != -1;
+				endIndex = s1.indexOf(' ', startIndex + 1))
+		{
+			System.out.println(s1.substring(startIndex, endIndex).trim());
+			startIndex = endIndex;
+		}
+		System.out.println(s1.substring(startIndex + 1));
+	}
+}
+
+/*
+OP
+-----
+java
+made
+easy
+and
+bangalore
+is
+very
+cool
+
+
+ */

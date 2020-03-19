@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="19900" started-at="2019-09-23T08:41:18 IST" finished-at="2019-09-23T08:41:38 IST">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="19900" started-at="2019-09-23T08:41:18 IST" finished-at="2019-09-23T08:41:38 IST">
+      <class name="globalEnvironmentVariableSetUP.DependencyAnnotation">
+        <test-method status="PASS" signature="OpeningBrowser()[pri:0, instance:globalEnvironmentVariableSetUP.DependencyAnnotation@185d8b6]" name="OpeningBrowser" duration-ms="10309" started-at="2019-09-23T08:41:19 IST" finished-at="2019-09-23T08:41:29 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- OpeningBrowser -->
+        <test-method status="PASS" signature="Login()[pri:0, instance:globalEnvironmentVariableSetUP.DependencyAnnotation@185d8b6]" name="Login" duration-ms="9540" started-at="2019-09-23T08:41:29 IST" finished-at="2019-09-23T08:41:38 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Login -->
+      </class> <!-- globalEnvironmentVariableSetUP.DependencyAnnotation -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
